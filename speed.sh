@@ -11,23 +11,23 @@ echo > t13 'declare -i i; i+=1'
 # Set i for test 14.
 echo > t14 'i=0; i=$(expr $i + 1)'
 
-x=100000
+x=1000
 while ((x--)); do
-    echo >> public/t0 'i=$((i+1))'
-    echo >> public/t1 'i=$((i++))'
-    echo >> public/t2 '((i=i+1))'
-    echo >> public/t3 '((i+=1))'
-    echo >> public/t4 '((i++))'
-    echo >> public/t5 '((++i))'
-    echo >> public/t6 'let "i=i+1"'
-    echo >> public/t7 'let "i+=1"'
-    echo >> public/t8 'let "i++"'
-    echo >> public/t9 'let i=i+1'
-    echo >> public/t10 'let i+=1'
-    echo >> public/t11 'let i++'
-    echo >> public/t12 'i=i+1'
-    echo >> public/t13 'i+=1'
-    echo >> public/t14 'i=$(expr $i + 1)'
+    echo >> t0 'i=$((i+1))'
+    echo >> t1 'i=$((i++))'
+    echo >> t2 '((i=i+1))'
+    echo >> t3 '((i+=1))'
+    echo >> t4 '((i++))'
+    echo >> t5 '((++i))'
+    echo >> t6 'let "i=i+1"'
+    echo >> t7 'let "i+=1"'
+    echo >> t8 'let "i++"'
+    echo >> t9 'let i=i+1'
+    echo >> t10 'let i+=1'
+    echo >> t11 'let i++'
+    echo >> t12 'i=i+1'
+    echo >> t13 'i+=1'
+    echo >> t14 'i=$(expr $i + 1)'
 done
 
 for script in t0 t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 t11 t12 t13 t14; do
@@ -38,4 +38,7 @@ for script in t0 t1 t2 t3 t4 t5 t6 t7 t8 t9 t10 t11 t12 t13 t14; do
     # there are no errors from running the command:
     eval "$line1"
     # rm "$script"
+git add .
+git commit -m "number game to test execution speed"
+git push
 done
